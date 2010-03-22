@@ -18,10 +18,6 @@ class Entry < ActiveRecord::Base
   }
   
   class << self
-    # def between(from, to)
-    #   Entry.recently.limited.where("created_at >= ? AND created_at <= ?", 
-    #       from.to_s(:db), to.to_s(:db))
-    # end
   end
   
   def html

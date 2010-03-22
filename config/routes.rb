@@ -17,18 +17,12 @@ Flow::Application.routes.draw do |map|
   # more
   # subdomain_routes plugin
   
-  
   root :to => "entry#index"
-
+  
   # /entries/2009
   # /entries/2008/12
   match "/entries(/:yyyy(/:mm(/:dd)))", :to => "entry#index",
-    :requirements => {
-      :yyyy => /(19|20)\d\d/, :mm => /[01]\d/, :dd => /[0-3]\d/
-    }
-    # :yyyy => nil, :mm => nil, :dd => nil, :slug => nil
-
-  resources :entries
+    :requirements => { :yyyy => /(19|20)\d\d/, :mm => /[01]\d/, :dd => /[0-3]\d/ }
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

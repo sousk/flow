@@ -6,12 +6,13 @@ class EntryController < ApplicationController
       when params[:mm] then :month
       when params[:yyyy] then :year
       else nil end
+    pnum = params[:page] || 1
     
     @entries = if period
       time = time_of params
-      Entry.list.between time.beginning_of_month, time.end_of_month
+      Entry.list.between(time.beginning_of_month, time.end_of_month).paginate :page=>pnum, :per_page=>Entry.per_page
     else
-      Entry.list
+      Entry.list.paginate(:page => pnum, :per_page => Entry.per_page)
     end
     
     respond_to do |format|
