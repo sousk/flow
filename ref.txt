@@ -5,6 +5,7 @@
  * AR
   * http://edgerails.info/articles/what-s-new-in-edge-rails/2010/02/23/the-skinny-on-scopes-formerly-named-scope/
   * http://m.onkey.org/2010/1/22/active-record-query-interface
+  * http://guides.rails.info/active_record_querying.html
  * useful
   * http://omgbloglol.com/post/371893012/the-path-to-rails-3-greenfielding-new-apps-with-the
 

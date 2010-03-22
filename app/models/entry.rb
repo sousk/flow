@@ -20,6 +20,10 @@ class Entry < ActiveRecord::Base
   class << self
   end
   
+  def posted
+    created_at()
+  end
+  
   def html
     body
   end
