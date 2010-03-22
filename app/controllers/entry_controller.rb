@@ -22,6 +22,7 @@ class EntryController < ApplicationController
   end
 
   def show
+    raise Exception.new("hoge")
   end
   
   private

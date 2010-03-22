@@ -22,7 +22,9 @@ Flow::Application.routes.draw do |map|
   # /entries/2009
   # /entries/2008/12
   match "/entries(/:yyyy(/:mm(/:dd)))", :to => "entry#index",
-    :requirements => { :yyyy => /(19|20)\d\d/, :mm => /[01]\d/, :dd => /[0-3]\d/ }
+    :constraints => { :yyyy => /(19|20)\d\d/, :mm => /[01]\d/, :dd => /[0-3]\d/ }
+  
+  resources :entries
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
