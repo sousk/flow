@@ -15,6 +15,7 @@ gem "warden"
 gem "devise", ">= 1.1.pre4"
 
 gem "haml"
+gem "compass", ">= 0.10.0.rc1"
 gem "will_paginate"
 
 group :test do

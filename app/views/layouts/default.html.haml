@@ -1,0 +1,31 @@
+!!! html
+%html
+  %head
+    %title blog
+    %meta{"http-equiv" => "Content-Type", :content => "text/html;charset=utf-8"}
+    
+    / %link{'rel'=>"alternate", 'type'=>"application/atom+xml", 
+    /   'title'=>"sousk.net - timeline", 'href'=> timeline_url }
+
+  %body.reset
+    #header
+      #title
+        %h1 blog
+      %ul#header-nav.clearfix.reset
+        /
+          %li link_to "timeline", timeline_path
+          %li link_to 'stacked', stacked_path
+
+    #content.clear
+      #content-main.append-1.column
+        #notice= flash[:notice]
+        #error= flash[:error]
+        #warn= flash[:warn]
+        = yield :layout
+      /
+        #content-menu.column.last
+          hogehoge
+  /
+    #footer.clear
+      %ul.menu
+        %li link_to 'profile', profile_url

@@ -1,4 +1,35 @@
 Flow::Application.routes.draw do |map|
+  
+  #
+  # http://yehudakatz.com/2009/12/26/the-rails-3-router-rack-it-up/
+  
+  # basics
+  # match "/foo", :to => proc {|env| [200, {}, ["Hello world"]] }
+  # match "/main/:id", :to => "main#home"
+  # match "/foo", :to => redirect("/bar")
+  
+  # method + named route
+  # post "/main/:id", :to => "main#home", :as => :homepage
+
+  # rack (sinatra)
+  # match "/home", :to => SinatraApp
+  
+  # more
+  # subdomain_routes plugin
+  
+  
+  root :to => "entry#index"
+
+  # /entries/2009
+  # /entries/2008/12
+  match "/entries(/:yyyy(/:mm(/:dd)))", :to => "entry#index",
+    :requirements => {
+      :yyyy => /(19|20)\d\d/, :mm => /[01]\d/, :dd => /[0-3]\d/
+    }
+    # :yyyy => nil, :mm => nil, :dd => nil, :slug => nil
+
+  resources :entries
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
