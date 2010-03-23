@@ -4,24 +4,21 @@ class Entry < ActiveRecord::Base
   cattr_reader :per_page
   @@per_page = 2
   
-  # basics
-  scope :limited, limit(@@per_page)
-  scope :recently, order('created_at DESC')
-  
-  # utils
-  scope :list, lambda {
-    limited.recently
-  }
-  scope :between, lambda {|from, to|
+  scope :recent, order('created_at DESC')  
+  scope :ranged, lambda {|opts|
+    now = Time.now
+    time = [opts[:year] || now.year, opts[:month] || now.month, now.day].join('-').to_time
+    period = opts[:month] ? :month : :year
+    
     where("created_at >= ? AND created_at <= ?", 
-        from.to_s(:db), to.to_s(:db))
+        time.send("beginning_of_#{period}").to_s(:db), time.send("end_of_#{period}").to_s(:db))
   }
   
   class << self
   end
   
   def posted
-    created_at()
+    created_at("")
   end
   
   def html

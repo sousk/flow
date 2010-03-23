@@ -19,12 +19,16 @@ Flow::Application.routes.draw do |map|
   
   root :to => "entries#index"
   
-  # /entries/2009
-  # /entries/2008/12
-  match "/entries(/:yyyy(/:mm(/:slug)))", :to => "entries#index",
-    :constraints => { :yyyy => /(19|20)\d\d/, :mm => /[01]\d/ }
-  
+  #
+  # entries
+  #
+  rule = { :year => /(19|20)\d\d/, :month => /[01]\d/ }
+  match "/entries/:year/:month/:slug", :to => "entries#show",
+    :constraints => rule
+  match "/entries(/:year(/:month(/:slug)))", :to => "entries#index",
+    :constraints => rule
   resources :entries
+  
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
