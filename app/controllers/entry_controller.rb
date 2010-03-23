@@ -2,15 +2,17 @@ class EntryController < ApplicationController
 
   def index
     period = case
-      when params[:dd] then :date
-      when params[:mm] then :month
-      when params[:yyyy] then :year
+      when params[:dd] then 'date'
+      when params[:mm] then 'month'
+      when params[:yyyy] then 'year'
       else nil end
     pnum = params[:page] || 1
     
     @entries = if period
       time = time_of params
-      Entry.list.between(time.beginning_of_month, time.end_of_month).paginate :page=>pnum, :per_page=>Entry.per_page
+      Entry.list.between(
+        time.send("beginning_of_#{period}"), time.send("end_of_#{period}")
+      ).paginate :page=>pnum, :per_page=>Entry.per_page
     else
       Entry.list.paginate(:page => pnum, :per_page => Entry.per_page)
     end
