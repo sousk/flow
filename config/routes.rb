@@ -17,12 +17,12 @@ Flow::Application.routes.draw do |map|
   # more
   # subdomain_routes plugin
   
-  root :to => "entry#index"
+  root :to => "entries#index"
   
   # /entries/2009
   # /entries/2008/12
-  match "/entries(/:yyyy(/:mm(/:dd)))", :to => "entry#index",
-    :constraints => { :yyyy => /(19|20)\d\d/, :mm => /[01]\d/, :dd => /[0-3]\d/ }
+  match "/entries(/:yyyy(/:mm(/:slug)))", :to => "entries#index",
+    :constraints => { :yyyy => /(19|20)\d\d/, :mm => /[01]\d/ }
   
   resources :entries
   

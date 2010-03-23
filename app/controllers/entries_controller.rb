@@ -1,8 +1,7 @@
-class EntryController < ApplicationController
+class EntriesController < ApplicationController
 
   def index
     period = case
-      when params[:dd] then 'date'
       when params[:mm] then 'month'
       when params[:yyyy] then 'year'
       else nil end
@@ -18,13 +17,15 @@ class EntryController < ApplicationController
     end
     
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.xml  { render :xml => @entries }
     end
   end
 
   def show
-    raise Exception.new("hoge")
+  end
+  
+  def destroy
   end
   
   private
