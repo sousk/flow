@@ -27,6 +27,7 @@ Flow::Application.routes.draw do |map|
     :constraints => rule
   match "/entries(/:year(/:month(/:slug)))", :to => "entries#index",
     :constraints => rule
+  
   resources :entries
   
   

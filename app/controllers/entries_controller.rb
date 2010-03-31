@@ -1,4 +1,5 @@
 class EntriesController < ApplicationController
+  before_filter :authenticate!, :except=>['index']
 
   def index
     query = Entry.recent
@@ -10,6 +11,20 @@ class EntriesController < ApplicationController
       format.html
       format.xml  { render :xml => @entries }
     end
+  end
+  
+  def new
+    warden.authenticate(:password)
+    
+    raise "Stop"
+    unless authenticated?
+      authenticate :password, 'pwd'
+    end
+    raise "not authed yet" 
+  end
+  
+  def create
+    authenticated?
   end
   
   def show

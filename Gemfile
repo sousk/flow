@@ -12,8 +12,10 @@ gem "rails", "3.0.0.beta"
 gem "rails3-generators"
 
 gem "warden"
-gem "devise", ">= 1.1.pre4"
+gem "rails_warden"
+gem "warden_oauth"
 
+gem "json"
 gem "haml"
 gem "compass", ">= 0.10.0.rc1"
 # you should install will_paginate --pre by hand
@@ -23,7 +25,7 @@ group :test do
   gem "sqlite3-ruby", :require => "sqlite3"
   gem 'rspec'
   gem "rspec-rails",  ">= 2.0.0.beta.1"
-  gem "factory_girl"
+  # gem "factory_girl"
 end
 
 group :development do

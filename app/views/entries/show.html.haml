@@ -1,0 +1,7 @@
+.entry
+  %h2.title= @entry.title
+  .body= @entry.html
+  .attributes
+    %ul
+      %li 
+        = @entry.created_at.to_s(:entry)
