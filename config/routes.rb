@@ -1,5 +1,4 @@
 Flow::Application.routes.draw do |map|
-  
   #
   # http://yehudakatz.com/2009/12/26/the-rails-3-router-rack-it-up/
   
@@ -29,6 +28,7 @@ Flow::Application.routes.draw do |map|
     :constraints => rule
   
   resources :entries
+  
   
   
   # The priority is based upon order of creation:
