@@ -8,7 +8,7 @@
 source :gemcutter
 source 'http://gems.github.com'
 
-gem "rails", "3.0.0.beta"
+gem "rails", ">= 3.0.0.beta2"
 gem "rails3-generators"
 
 gem "warden"
@@ -30,7 +30,7 @@ end
 
 group :development do
   gem "sqlite3-ruby", :require => "sqlite3"
-  gem "rails_metrics"
+  # gem "rails_metrics"
 end
 
 
