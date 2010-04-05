@@ -28,6 +28,7 @@ Flow::Application.routes.draw do |map|
     :constraints => rule
   
   resources :entries
+  resource :session
   
   
   

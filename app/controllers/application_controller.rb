@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  
-  # before_filter :set_defaults, :authenticate!
+    
   before_filter :set_defaults
   attr_accessor :page_title
   
@@ -9,6 +8,11 @@ class ApplicationController < ActionController::Base
     # r.request.request_uri.index(/admin/) ? "admin" : "default" 
   }
   
+  # to be override
+  before_filter :require_authentication
+  
+  
+  protected
   def render_404(exception = nil)
     if exception
       logger.info "Rendering 404 with exception: #{exception.message}"
@@ -21,13 +25,14 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  protected
   def require_authentication
-    puts "---on cnt"
-    p authenticated?
-    puts "---/on cnt"
-    unless warden.authenticated?
-      authenticate!
+    require_basic_auth
+  end
+  
+  def require_basic_auth
+    authenticate_or_request_with_http_basic do |name, password|
+      path = File.join(Rails.root, 'secret.json')
+      File.exists?(path) && password == JSON.parse(File.read(path))['password']
     end
   end
   
