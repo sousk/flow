@@ -1,8 +1,5 @@
 class LoginController < ApplicationController
   def unauthenticated
-    puts "!----"
-    p params
-    puts "!----"
-    raise params.keys.join(",")
+    render_404
   end
 end

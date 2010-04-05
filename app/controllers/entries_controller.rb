@@ -1,5 +1,5 @@
 class EntriesController < ApplicationController
-  before_filter :authenticate!, :except=>['index']
+  before_filter :require_authentication, :except=>['index', 'show']
 
   def index
     query = Entry.recent
@@ -14,13 +14,7 @@ class EntriesController < ApplicationController
   end
   
   def new
-    warden.authenticate(:password)
-    
     raise "Stop"
-    unless authenticated?
-      authenticate :password, 'pwd'
-    end
-    raise "not authed yet" 
   end
   
   def create
