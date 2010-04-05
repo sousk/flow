@@ -8,10 +8,6 @@ class ApplicationController < ActionController::Base
     # r.request.request_uri.index(/admin/) ? "admin" : "default" 
   }
   
-  # to be override
-  before_filter :require_authentication
-  
-  
   protected
   def render_404(exception = nil)
     if exception
