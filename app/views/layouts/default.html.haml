@@ -1,11 +1,13 @@
 !!! html
 %html
   %head
-    %title blog
+    %title page_title
     %meta{"http-equiv" => "Content-Type", :content => "text/html;charset=utf-8"}
     
     / %link{'rel'=>"alternate", 'type'=>"application/atom+xml", 
     /   'title'=>"sousk.net - timeline", 'href'=> timeline_url }
+    = stylesheet_link_tag "oocss/core/libraries" #, :media => "screen, projection"
+    
 
   %body.reset
     #header

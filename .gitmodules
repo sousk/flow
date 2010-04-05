@@ -1,0 +1,3 @@
+[submodule "vendor/modules/oocss"]
+	path = vendor/modules/oocss
+	url = git://github.com/stubbornella/oocss.git
