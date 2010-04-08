@@ -1,7 +1,7 @@
 !!! html
 %html
   %head
-    %title @page_title
+    %title= @page_title ||= 'page title'
     %meta{"http-equiv" => "Content-Type", :content => "text/html;charset=utf-8"}
     
     / %link{'rel'=>"alternate", 'type'=>"application/atom+xml", 
@@ -17,10 +17,10 @@
   %body
     .page
       .head
-        %h1 page_title
+        %h1= @page_title ||= 'page title'
 
       .body
-        .leftCol.main
+        .main.leftCol
           #messages
             #notice= flash[:notice]
             #error= flash[:error]
@@ -29,7 +29,7 @@
             = yield :layout
 
         .side
-          %h2 side col
+          %h2 recent posts
           %ul
             %li foo
             %li foo
