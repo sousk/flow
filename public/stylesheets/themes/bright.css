@@ -1,0 +1,32 @@
+html {
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
+  background: #ded7cc;
+}
+body {
+  text-align: center;
+	height: 100%;
+	margin: 8px 0px;
+}
+
+.head {
+	border-bottom: solid 8px #ded7cc;
+}
+
+.page {
+	background: #FFF;
+  text-align: left;
+	height: 100%;
+  margin: 0px auto 0px auto;
+	padding: 0px;
+}
+
+.foot {
+	background: #FFF;
+}
+
+h1 {
+	font-size: 2em;
+	color: #c6c0b3;
+}

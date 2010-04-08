@@ -1,0 +1,35 @@
+/*
+
+1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987
+
+see
+http://www.smashingmagazine.com/2010/02/09/applying-mathematics-to-web-design/
+
+strategy
+--------------------------
+|21|-610-|34|-233-|21|
+
+29px * 34unit = 986
+47px * 21unit = 987
+
+size
+|--_----- 987px --------|
+|- main:610 -|-side:377-|
+
+
+*/
+
+.head {
+	height: 89px;
+}
+
+.page {
+  padding: 0px;
+  margin: 0px 21px;
+}
+.side {
+  padding: 0px 0px 0px 21px;
+}
+.main {
+  width: 610px;
+}
