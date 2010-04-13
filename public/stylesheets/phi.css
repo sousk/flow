@@ -18,18 +18,28 @@ size
 
 
 */
-
-.head {
+#header {
 	height: 89px;
 }
 
-.page {
-  padding: 0px;
-  margin: 0px 21px;
+.blogstyle .colmid {
+	/* 89 + 8 */
+	margin-left: -97px;
 }
-.side {
-  padding: 0px 0px 0px 21px;
+.blogstyle .colleft {
+	/* 233 + 8 */
+	margin-left: -241px;
 }
-.main {
-  width: 610px;
+.blogstyle .col1 {
+	/* col2 + col3 + margin(1) */
+	margin: 0px 8px 0px 338px;
+}
+.blogstyle .col2 {
+	left: 241px;
+	width: 233px;
+}
+.blogstyle .col3 {
+	/* 241 +89 +241 */
+	left: 571px;
+	width: 89px;
 }

@@ -1,0 +1,16 @@
+/* Header styles */
+#header {
+	border-bottom: 1px solid #000;
+}
+.blogstyle {
+	background: #ff9;      /* Right column background colour */
+}
+.blogstyle .colleft {
+	background:#ddd;      /* Left column background colour */
+}
+.blogstyle .colmid {
+	background: #FFD8B7;      /* Centre column background colour */
+}
+#footer {
+	border-top: 1px solid #000;
+}

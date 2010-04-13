@@ -3,9 +3,15 @@ class EntriesController < ApplicationController
 
   def index
     query = Entry.recent
-    query = query.ranged params if params[:year]
+    # query = query.ranged params if params[:year]
     
-    @entries = query.paginate :page=>params[:page] || 1, :per_page=>Entry.per_page
+    # paginate(:page => page, :per_page => size, :sort => [['ontology_term_id', :desc], ['_id', :asc]])
+    Entry.per_page
+    puts "--"
+    p query
+    # @entries = query.find :all
+    @entries = Entry.all
+    # @entries = query.paginate :page=>(params[:page] || 1), :per_page=>Entry.per_page, :sort =>[['created_at', :desc], ['_id', :asc]]
     
     respond_to do |format|
       format.html

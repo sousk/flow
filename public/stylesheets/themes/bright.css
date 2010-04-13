@@ -15,11 +15,19 @@ body {
 }
 
 .page {
-	background: #FFF;
+	background: #FFF;	
   text-align: left;
 	height: 100%;
   margin: 0px auto 0px auto;
 	padding: 0px;
+}
+
+.body {
+	background: #FFF;	
+}
+.side {
+}
+.main {
 }
 
 .foot {
