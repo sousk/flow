@@ -9,13 +9,9 @@ strategy
 --------------------------
 |21|-610-|34|-233-|21|
 
-29px * 34unit = 986
-47px * 21unit = 987
-
-size
-|--_----- 987px --------|
-|- main:610 -|-side:377-|
-
+1st-margin: 21px
+2nd-margin: 13px
+min-margin: 8px
 
 */
 #header {
@@ -23,23 +19,28 @@ size
 }
 
 .blogstyle .colmid {
-	/* 89 + 8 */
-	margin-left: -97px;
+	/* 21 + 89 */
+	margin-left: -89px;
+	padding: 0px;
+	
 }
 .blogstyle .colleft {
 	/* 233 + 8 */
-	margin-left: -241px;
+	margin-left: -221px;
+	padding: 0px;
 }
 .blogstyle .col1 {
-	/* col2 + col3 + margin(1) */
-	margin: 0px 8px 0px 338px;
+	/* col2 + col3 + margin-left */
+	margin: 0px 0px 0px 351px;
+	padding: 0px;
 }
 .blogstyle .col2 {
-	left: 241px;
+	left: 233px;
 	width: 233px;
 }
 .blogstyle .col3 {
-	/* 241 +89 +241 */
-	left: 571px;
-	width: 89px;
+	/* col2 *2 +width */
+	left: 566px;
+	width: 97px;
+	padding-right: 8px;
 }

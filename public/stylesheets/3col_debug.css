@@ -10,7 +10,18 @@
 }
 .blogstyle .colmid {
 	background: #FFD8B7;      /* Centre column background colour */
+	border: solid brown 2px;
 }
+.blogstyle .col1 {
+	border: dotted 2px red;
+}
+.blogstyle .col2 {
+	border: dotted 2px green;
+}
+.blogstyle .col3 {
+	border: dotted 2px blue;
+}
+
 #footer {
 	border-top: 1px solid #000;
 }

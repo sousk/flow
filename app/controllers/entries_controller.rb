@@ -6,11 +6,8 @@ class EntriesController < ApplicationController
     # query = query.ranged params if params[:year]
     
     # paginate(:page => page, :per_page => size, :sort => [['ontology_term_id', :desc], ['_id', :asc]])
-    Entry.per_page
-    puts "--"
-    p query
-    # @entries = query.find :all
-    @entries = Entry.all
+    @entries = Entry.paginate(
+      :page => (params[:page] || 1), :per_page => Entry.per_page, :sort => ['_id', :asc])
     # @entries = query.paginate :page=>(params[:page] || 1), :per_page=>Entry.per_page, :sort =>[['created_at', :desc], ['_id', :asc]]
     
     respond_to do |format|
