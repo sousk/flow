@@ -7,7 +7,14 @@ http://www.smashingmagazine.com/2010/02/09/applying-mathematics-to-web-design/
 
 strategy
 --------------------------
-|21|-610-|34|-233-|21|
+(adopted)
+col1:|13|  (calc)   |0| col2:|13| 233 |0| col3:|8| 89 |8|
+                             246                105
+
+(obsoleted)
+|21|  (calc)   |   233   |   105    |
+               |21| 212  |8| 89 | 8 |
+
 
 1st-margin: 21px
 2nd-margin: 13px
@@ -19,28 +26,29 @@ min-margin: 8px
 }
 
 .blogstyle .colmid {
-	/* 21 + 89 */
-	margin-left: -89px;
+	margin-left: -105px;
 	padding: 0px;
 	
 }
 .blogstyle .colleft {
-	/* 233 + 8 */
-	margin-left: -221px;
+	margin-left: -246px;
 	padding: 0px;
 }
 .blogstyle .col1 {
-	/* col2 + col3 + margin-left */
+	/* Centre column side padding:
+     Left padding = left column width + centre column left padding width
+     Right padding = right column width + centre column right padding width */
 	margin: 0px 0px 0px 351px;
 	padding: 0px;
 }
 .blogstyle .col2 {
-	left: 233px;
+	/* Width of left column content (left column width minus left and right padding) */
 	width: 233px;
+	/* Width of the left-had side padding on the left column */
+	left: 246px;
 }
 .blogstyle .col3 {
-	/* col2 *2 +width */
-	left: 566px;
-	width: 97px;
-	padding-right: 8px;
+	/* col2left + col2all + col3 */
+	left: 589px;
+	width: 89px;
 }
