@@ -2,13 +2,12 @@ class EntriesController < ApplicationController
   before_filter :require_authentication, :except=>['index', 'show']
 
   def index
-    query = Entry.recent
     # query = query.ranged params if params[:year]
     
-    # paginate(:page => page, :per_page => size, :sort => [['ontology_term_id', :desc], ['_id', :asc]])
-    @entries = Entry.paginate(
+    # @entries = Entry.paginate(
+    #   :page => (params[:page] || 1), :per_page => Entry.per_page, :sort => ['_id', :asc])
+    @entries = Entry.by_params(params).paginate(
       :page => (params[:page] || 1), :per_page => Entry.per_page, :sort => ['_id', :asc])
-    # @entries = query.paginate :page=>(params[:page] || 1), :per_page=>Entry.per_page, :sort =>[['created_at', :desc], ['_id', :asc]]
     
     respond_to do |format|
       format.html
@@ -25,7 +24,7 @@ class EntriesController < ApplicationController
   end
   
   def show
-    @entry = Entry.recent.ranged(params).first
+    @entry = Entry.by_params params
   end
   
   def destroy

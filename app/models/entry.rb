@@ -13,9 +13,25 @@ class Entry
   cattr_reader :per_page
   @@per_page = 2
   
-  scope :recent, order_by(['created_at', :desc])
-  
   class << self
+    def recent
+      criteria.order_by(:created_at)
+    end
+    def ranged(p)
+      now = Time.now
+      time = [p[:year] || now.year, p[:month] || now.month, now.day].join('-').to_time
+      period = p[:month] ? :month : :year
+      
+      criteria.and(
+        :created_at => {"$gte" => time.send("beginning_of_#{period}").utc,
+          "$lte" => time.send("end_of_#{period}").utc }
+      )
+    end
+    def by_params(p)
+      q = ranged(p)
+      q = q.criteria.where(:slug => p[:slug]) if p[:slug]
+      q
+    end
   end
   
   def posted

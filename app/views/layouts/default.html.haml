@@ -36,11 +36,10 @@
           .col2
             %h2 recent posts
             %ul
-              %li foo
-              %li foo
-              %li foo
+              - Entry.recent.limit(8).each do |e|
+                %li= e.title
           .col3
-            col3 oo
+            
 
     #footer
       footer

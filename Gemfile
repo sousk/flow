@@ -8,10 +8,10 @@
 source :gemcutter
 source 'http://gems.github.com'
 
-gem "rails", ">= 3.0.0.beta2"
+gem "rails", ">= 3.0.0.beta3"
 gem "rails3-generators"
 gem "bson_ext"
-gem "mongoid", ">= 2.0.0.beta2"
+gem "mongoid", ">= 2.0.0.beta3"
 
 gem "json"
 gem "haml"
