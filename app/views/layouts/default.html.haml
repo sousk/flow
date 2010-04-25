@@ -31,7 +31,7 @@
             %h2 recent posts
             %ul
               - Entry.recent.limit(8).each do |e|
-                %li= e.title
+                %li= link_to e.title, entry_perm_path(e)
           .col3
             
 

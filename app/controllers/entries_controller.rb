@@ -24,7 +24,7 @@ class EntriesController < ApplicationController
   end
   
   def show
-    @entry = Entry.by_params params
+    @entry = Entry.by_params(params).first
   end
   
   def destroy
