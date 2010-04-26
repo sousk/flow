@@ -28,8 +28,9 @@ gem "will_paginate", ">= 3.0.pre"
 group :test do
   gem "sqlite3-ruby", :require => "sqlite3"
   gem 'rspec'
-  gem "rspec-rails",  ">= 2.0.0.beta.1"
-  # gem "factory_girl"
+  gem "rspec-rails",  ">= 2.0.0.beta.7"
+  gem "autotest-rails"
+  gem "factory_girl", :git => 'git://github.com/danielb2/factory_girl'
 end
 
 group :development do
