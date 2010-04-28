@@ -9,9 +9,8 @@ describe Author do
   end
   
   it "should create a new instance given valid attributes" do
-    Author.create!(@valid_attributes)
-    puts "----"
-    puts Author.klass
+    a = Author.create!(@valid_attributes)
+    a.encrypted_password.should_not be_blank
   end
   
   it "should have crypted pwd" do
