@@ -1,5 +1,4 @@
 # Read about factories at http://github.com/thoughtbot/factory_girl
-
 Factory.define :entry do |f|
   f.title 'MyString-latest'
   f.slug 'my-string-latest'

@@ -7,6 +7,7 @@ require 'rspec/rails'
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
+Dir["#{File.dirname(__FILE__)}/factories/**/*.rb"].each {|f| require f}
 
 Rspec.configure do |config|
   # == Mock Framework
@@ -18,3 +19,15 @@ Rspec.configure do |config|
   # config.mock_with :rr
   config.mock_with :rspec
 end
+
+# NOW throughout your tests you can say:
+# User(:name => "Paul")
+# Instead of:
+# Factory.build(:user, :name => "Paul")
+# Factory.factories.keys.each do |f|
+#   eval %{
+#   def #{f.to_s.classify}(attrs={})
+#     Factory.build(:#{f}, attrs)
+#   end
+#   }
+# end

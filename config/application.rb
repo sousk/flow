@@ -7,7 +7,7 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "active_resource/railtie"
 require "rails/test_unit/railtie"
-
+require "mongoid/railtie" 
 
 # Auto-require default libraries and those for the current Rails environment.
 Bundler.require :default, Rails.env
@@ -47,7 +47,8 @@ module Flow
     config.generators do |g|
       g.orm             :mongoid
       g.template_engine :haml
-      g.test_framework  :rspec, :fixture => false
+      g.test_framework  :rspec #, :fixture => false
+      g.integration_tool :rspec
     end
 
     # Configure sensitive parameters which will be filtered from the log file.
