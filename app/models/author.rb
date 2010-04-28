@@ -5,4 +5,10 @@ class Author
   field :name
   field :salt
   field :crypted_pwd
+  
+  class << self
+    def create
+      super
+    end
+  end
 end
