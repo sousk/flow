@@ -10,10 +10,13 @@ describe Author do
   
   it "should create a new instance given valid attributes" do
     a = Author.create!(@valid_attributes)
+    # attrs
     a.encrypted_password.should_not be_blank
   end
   
-  it "should have crypted pwd" do
+  it "should authenticate name & plain password" do
+    a = Author.authenticate @valid_attributes
+    a.should_not be_blank
   end  
   
   def author

@@ -30,6 +30,11 @@ class Author
       pwd
     end
     
+    def authenticate(params)
+      return nil unless params[:name] && params[:password]
+      Author.first :conditions => {:name=>params[:name], :password=>params[:password]}
+    end
+    
     def hash(str)
       Digest::SHA2.hexdigest(str)
     end
