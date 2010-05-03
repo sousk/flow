@@ -27,6 +27,7 @@ class ApplicationController < ActionController::Base
   
   def require_basic_auth
     authenticate_or_request_with_http_basic do |name, password|
+      Author.authenticate
       path = File.join(Rails.root, 'secret.json')
       File.exists?(path) && password == JSON.parse(File.read(path))['password']
     end
