@@ -21,8 +21,12 @@
           .col1wrap
             .col1
               #messages
-                #notice= flash[:notice]
-                #error= flash[:error]
+                #notice
+                  = flash[:notice]
+                  = notice
+                #error
+                  = flash[:error]
+                  = alert
                 #warn= flash[:warn]
               #contents
                 = yield :layout
