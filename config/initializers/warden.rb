@@ -15,7 +15,7 @@
 Rails.configuration.middleware.use RailsWarden::Manager do |manager|
   # manager.default_strategies :twitter
   manager.default_strategies :password
-  manager.failure_app = LoginController # redirected to here if not authed, huh ?
+  manager.failure_app = SessionsController # redirected to here if not authed, huh ?
   manager.serialize_into_session{|user| 
     puts "------#{user.id}---"
     user.id 
@@ -62,7 +62,7 @@ end
 # Declare your strategies here
 Warden::Strategies.add(:password) do
   def valid?
-    params.has_key? :password
+    params.has_key? :password && params.has_key? :name
   end
   
   def authenticate!
