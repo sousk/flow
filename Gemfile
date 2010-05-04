@@ -19,11 +19,7 @@ gem "compass", ">= 0.10.0.rc1"
 # you should install will_paginate --pre by hand
 gem "will_paginate", ">= 3.0.pre"
 
-gem "warden"
-gem "rails_warden"
-# gem "warden_oauth"
-# gem "binarylogic-authlogic" # use edge on plugin
-
+gem "devise", ">= 1.1.pre4"
 
 group :test do
   gem "sqlite3-ruby", :require => "sqlite3"
