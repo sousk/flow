@@ -22,12 +22,20 @@ class ApplicationController < ActionController::Base
   end
   
   def require_authentication
-    require_basic_auth
+    require_local_auth
+  end
+  
+  def require_local_auth
+    puts "-------------"
+    p warden.result
+    p user
+    puts "-------------"
+    
+    authenticate! unless authenticated? params    
   end
   
   def require_basic_auth
     authenticate_or_request_with_http_basic do |name, password|
-      Author.authenticate
       path = File.join(Rails.root, 'secret.json')
       File.exists?(path) && password == JSON.parse(File.read(path))['password']
     end

@@ -62,7 +62,7 @@ end
 # Declare your strategies here
 Warden::Strategies.add(:password) do
   def valid?
-    params.has_key? :password && params.has_key? :name
+    params.has_key?(:password) && params.has_key?(:name)
   end
   
   def authenticate!

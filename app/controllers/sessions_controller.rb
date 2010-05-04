@@ -8,11 +8,16 @@ class SessionsController < ApplicationController
   
   def create
     @author = Author.authenticate params
-    unless @author
+    if @author
+      user = @author
+      puts "-------------"
+      p warden.result
+      p user
+      puts "-------------"
+      redirect_to :root
+    else
       flash[:notice] = "invalid name or password"
-      redirect_to :new_session_path
+      redirect_to :new_session
     end
-    
-    serialize_into_session @author
   end
 end
