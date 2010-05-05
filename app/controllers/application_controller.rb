@@ -21,27 +21,25 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  def require_authentication
-    require_local_auth
-  end
-  
-  def require_local_auth
-    puts "-------------"
-    p warden.result
-    p user
-    puts "-------------"
-    
-    authenticate! unless authenticated? params    
-  end
-  
-  def require_basic_auth
-    authenticate_or_request_with_http_basic do |name, password|
-      path = File.join(Rails.root, 'secret.json')
-      File.exists?(path) && password == JSON.parse(File.read(path))['password']
-    end
-  end
-  
   def set_defaults
     page_title = "blog"
   end
+  
+  # Auth
+  def require_authentication
+    do_authenticate unless logged_in?
+  end
+  def logged_in?
+    authenticated? :as_author
+  end
+  def do_authenticate
+    authenticate! :as_author    
+  end
+  
+  # def require_basic_auth
+  #   authenticate_or_request_with_http_basic do |name, password|
+  #     path = File.join(Rails.root, 'secret.json')
+  #     File.exists?(path) && password == JSON.parse(File.read(path))['password']
+  #   end
+  # end  
 end

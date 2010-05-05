@@ -7,13 +7,9 @@ class SessionsController < ApplicationController
   end
   
   def create
-    @author = Author.authenticate params
-    if @author
-      user = @author
-      puts "-------------"
-      p warden.result
-      p user
-      puts "-------------"
+    do_authenticate
+    
+    if logged_in?
       redirect_to :root
     else
       flash[:notice] = "invalid name or password"
