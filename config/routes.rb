@@ -17,6 +17,8 @@ Flow::Application.routes.draw do |map|
   # subdomain_routes plugin
   
   root :to => "entries#index"
+  match 'login'  => 'sessions#new', :as => :login
+  match 'logout' => 'sessions#destroy', :as => :logout
   
   #
   # entries

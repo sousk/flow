@@ -4,6 +4,10 @@ class SessionsController < ApplicationController
   end
   
   def new
+    if logged_in?
+      flash[:notice] = "you already have logged in as "+user.name
+      redirect_to :root
+    end
   end
   
   def create
@@ -15,5 +19,11 @@ class SessionsController < ApplicationController
       flash[:notice] = "invalid name or password"
       redirect_to :new_session
     end
+  end
+  
+  def destroy
+    logout
+    flash[:notice] = "logged out"
+    redirect_to :new_session
   end
 end

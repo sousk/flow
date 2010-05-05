@@ -30,10 +30,11 @@ class ApplicationController < ActionController::Base
     do_authenticate unless logged_in?
   end
   def logged_in?
-    authenticated? :as_author
+    authenticated?
   end
   def do_authenticate
-    authenticate! :as_author    
+    puts "in do_authenticate"
+    authenticate!
   end
   
   # def require_basic_auth
