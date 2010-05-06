@@ -16,7 +16,6 @@ class EntriesController < ApplicationController
   end
   
   def new
-    raise "Stop"
   end
   
   def create

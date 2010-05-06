@@ -2,24 +2,18 @@ require 'spec_helper'
 
 describe Author do
   before(:each) do
-    @valid_attributes = {
-      :name => "john",
-      :password => "mypwd"
-    }
+    @valid_params = {:name => "john", :password => "hispwd" }
   end
   
-  it "should create a new instance given valid attributes" do
-    a = Author.create!(@valid_attributes)
-    # attrs
-    a.encrypted_password.should_not be_blank
-  end
+  let(:author) { @author ||= Author.create! @valid_params }
   
-  it "should authenticate name & plain password" do
-    a = Author.authenticate @valid_attributes
-    a.should_not be_blank
-  end  
+  # don't work, bug ?
+  # subject { Author.create! @valid_params }
+  # its(:encrypted_password) { should_not be_blank }
   
-  def author
-    Factory.build(:author)
+  context "password encryption" do
+    subject { author.encrypted_password }
+    it { should_not be_blank }
+    it { should_not == @valid_params[:password] }
   end
 end

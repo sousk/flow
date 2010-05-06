@@ -27,8 +27,8 @@ gem "rails_warden"
 
 group :test do
   gem "sqlite3-ruby", :require => "sqlite3"
-  gem 'rspec'
-  gem "rspec-rails",  ">= 2.0.0.beta.7"
+  gem 'rspec',  ">= 2.0.0.beta.8"
+  gem "rspec-rails",  ">= 2.0.0.beta.8"
   gem "autotest-rails"
   gem "factory_girl", :git => 'git://github.com/danielb2/factory_girl'
 end
