@@ -10,26 +10,18 @@ class Author
   field :salt
   field :encrypted_password
   
-  before_save :encrypt_password
+  before_save :encrypt_password!
   
-  def encrypt_password
+  def encrypt_password!
     self.salt!
-    self.encrypted_password = self.class.encrypt(password)
+    self.encrypted_password = self.class.hash("#{password}#{salt}")
   end
   
   def salt!
-    self.class.hash "#{Time.now.utc}#{password}"
+    self.salt = self.class.hash "#{Time.now.utc}#{password}"
   end
   
   class << self
-    def create
-      super
-    end
-    
-    def encrypt(pwd)
-      pwd
-    end
-    
     def authenticate(params)
       return nil unless params[:name] && params[:password]
       Author.first :conditions => {:name=>params[:name], :password=>params[:password]}
