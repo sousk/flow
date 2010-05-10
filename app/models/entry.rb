@@ -28,12 +28,19 @@ class Entry
   end
   
   class << self
-    def recent
-      criteria.order_by(:created_at)
-    end
-    
     def make_slug(source)
       source.gsub(/[^a-zA-Z0-9\s]/,"").downcase.gsub(/\s/, '-')
+    end
+    
+    #
+    # query
+    #
+    def published
+      criteria.where(:published_at => {'$gt' => 0}).order_by(:published_at)
+    end
+    
+    def draft
+      criteria.order_by(:created_at)
     end
     
     def ranged(p)
@@ -42,7 +49,7 @@ class Entry
       period = p[:month] ? :month : :year
       
       criteria.and(
-        :created_at => {"$gte" => time.send("beginning_of_#{period}").utc,
+        :published_at => {"$gte" => time.send("beginning_of_#{period}").utc,
           "$lte" => time.send("end_of_#{period}").utc }
       )
     end
@@ -55,7 +62,7 @@ class Entry
   end
   
   def posted
-    created_at("")
+    published_at("")
   end
   
   def html
