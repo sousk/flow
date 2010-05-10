@@ -10,7 +10,7 @@ describe Entry do
   context "a new entry" do
     subject { entry.slug }
     it { should_not be_nil }
-    it { Entry.make_slug("I'm hungry.").should == "im_hungry"}
+    it { Entry.make_slug("I'm hungry.").should == "im-hungry"}
   end
   
   context "publishing" do

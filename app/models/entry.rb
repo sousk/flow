@@ -33,7 +33,7 @@ class Entry
     end
     
     def make_slug(source)
-      source.gsub(/[^a-zA-Z0-9\s]/,"").downcase.gsub(/\s/, '_')
+      source.gsub(/[^a-zA-Z0-9\s]/,"").downcase.gsub(/\s/, '-')
     end
     
     def ranged(p)
