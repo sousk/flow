@@ -1,5 +1,28 @@
 require 'spec_helper'
 
 describe Entry do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before(:each) do
+    @valid_params = {:title=>'tokyo sake guide', :body=>"find your favorite sake restaurant and bars..."}
+  end
+  
+  let(:entry) { Entry.create! @valid_params }
+  
+  context "a new entry" do
+    subject { entry.slug }
+    it { should_not be_nil }
+    it { Entry.make_slug("I'm hungry.").should == "im_hungry"}
+  end
+  
+  context "publishing" do
+    it { 
+      entry.published_at.should be_nil
+      entry.published?.should be_false
+      
+      entry.should respond_to(:publish!)
+      entry.publish!
+      
+      entry.published_at.should_not be_nil
+      entry.published?.should be_true
+    }
+  end
 end
