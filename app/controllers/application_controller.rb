@@ -33,7 +33,6 @@ class ApplicationController < ActionController::Base
     authenticated?
   end
   def do_authenticate
-    puts "in do_authenticate"
     authenticate!
   end
   

@@ -14,17 +14,22 @@ class Author
   
   def encrypt_password!
     self.salt!
-    self.encrypted_password = self.class.hash("#{password}#{salt}")
+    self.encrypted_password = self.class.hash("#{salt}#{password}")
   end
   
   def salt!
     self.salt = self.class.hash "#{Time.now.utc}#{password}"
   end
   
+  def has_password?(plain_password)
+    encrypted_password == self.class.hash("#{salt}#{plain_password}")
+  end
+  
   class << self
     def authenticate(params)
       return nil unless params[:name] && params[:password]
-      Author.first :conditions => {:name=>params[:name], :password=>params[:password]}
+      a = Author.first :conditions => {:name=>params[:name]}
+      a.has_password?(params[:password])
     end
     
     def hash(str)
