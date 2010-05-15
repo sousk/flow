@@ -14,7 +14,7 @@ gem "bson_ext"
 gem "mongoid", ">= 2.0.0.beta3"
 
 gem "json"
-gem "haml"
+gem "haml", "3.0.2"
 gem "compass", ">= 0.10.0.rc1"
 # you should install will_paginate --pre by hand
 gem "will_paginate", ">= 3.0.pre"
