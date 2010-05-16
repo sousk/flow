@@ -32,7 +32,7 @@ class Author
     def authenticate(params)
       return nil unless params[:name] && params[:password]
       a = Author.first :conditions => {:name=>params[:name]}
-      a && a.has_password?(params[:password])
+      a && a.has_password?(params[:password]) ? a : nil
     end
     
     def hash(str)
