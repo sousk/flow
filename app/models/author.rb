@@ -10,6 +10,9 @@ class Author
   field :salt
   field :encrypted_password
   
+  validates_presence_of :name, :password
+  validates_uniqueness_of :name
+  
   before_save :encrypt_password!
   
   def encrypt_password!
@@ -29,7 +32,7 @@ class Author
     def authenticate(params)
       return nil unless params[:name] && params[:password]
       a = Author.first :conditions => {:name=>params[:name]}
-      a.has_password?(params[:password])
+      a && a.has_password?(params[:password])
     end
     
     def hash(str)
