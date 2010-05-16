@@ -1,4 +1,5 @@
 Flow::Application.routes.draw do |map|
+
   #
   # http://yehudakatz.com/2009/12/26/the-rails-3-router-rack-it-up/
   
@@ -31,6 +32,10 @@ Flow::Application.routes.draw do |map|
   
   resources :entries
   resource :session
+  
+  namespace :admin do
+    resources :entries
+  end
   
   
   
