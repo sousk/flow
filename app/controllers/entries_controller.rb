@@ -2,12 +2,8 @@ class EntriesController < ApplicationController
   before_filter :require_authentication, :except=>['index', 'show']
 
   def index
-    # query = query.ranged params if params[:year]
-    
-    # @entries = Entry.paginate(
-    #   :page => (params[:page] || 1), :per_page => Entry.per_page, :sort => ['_id', :asc])
-    @entries = Entry.by_params(params).paginate(
-      :page => (params[:page] || 1), :per_page => Entry.per_page, :sort => ['_id', :asc])
+    @entries = Entry.by_params(params).published.paginate(
+      :page => (params[:page] || 1), :per_page => Entry.per_page)
     
     respond_to do |format|
       format.html
