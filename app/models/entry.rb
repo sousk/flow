@@ -36,11 +36,11 @@ class Entry
     # query
     #
     def published
-      criteria.where(:published_at => {'$gt' => 0}).order_by([:published_at, :desc])
+      criteria.where(:published_at.ne => nil).order_by([:published_at, :desc])
     end
     
     def draft
-      criteria.order_by([:created_at, :desc])
+      criteria.where(:published_at => nil).order_by([:created_at, :desc])
     end
     
     def ranged(p)
