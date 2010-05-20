@@ -9,18 +9,8 @@ class EntriesController < ApplicationController
     respond_with @entries
   end
   
-  def new
-  end
-  
-  def create
-    authenticated?
-  end
-  
   def show
     @entry = Entry.by_params(params).published.first
     respond_with @entry
-  end
-  
-  def destroy
   end
 end
