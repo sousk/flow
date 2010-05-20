@@ -9,6 +9,9 @@ class Admin::EntriesController < ApplicationController
     render :template => 'entries/index'
   end
   
+  def edit
+  end
+  
   private
   def entry
     Entry
