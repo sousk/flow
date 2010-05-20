@@ -19,7 +19,7 @@ class EntriesController < ApplicationController
   end
   
   def show
-    @entry = Entry.by_params(params).first
+    @entry = Entry.by_params(params).published.first
   end
   
   def destroy
