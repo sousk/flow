@@ -1,6 +1,4 @@
 class EntriesController < ApplicationController
-  before_filter :require_authentication, :except=>['index', 'show']
-  
   respond_to :html, :xml, :json
 
   def index
