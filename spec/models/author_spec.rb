@@ -5,13 +5,12 @@ describe Author do
     @valid_params = {:name => "john", :password => "hispwd" }
   end
   
-  let(:author) { Author.create @valid_params }
+  let(:author) { Author.create(@valid_params).encrypt_password! }
   
   # don't work, bug ?
   # subject { Author.create! @valid_params }
   # its(:encrypted_password) { should_not be_blank }
   it { author.should_not respond_to(:password) }
-  
   
   context "password encryption" do
     subject { author.encrypted_password }

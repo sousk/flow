@@ -18,6 +18,7 @@ class Author
   def encrypt_password!
     self.salt!
     self.encrypted_password = self.class.hash("#{salt}#{password}")
+    self
   end
   
   def salt!
