@@ -10,6 +10,21 @@ class Admin::EntriesController < ApplicationController
   end
   
   def edit
+    @entry = entry.first(:conditions=>{:id => params[:id]})
+    render_404 unless @entry
+  end
+  
+  def update
+    @entry = entry.first(:conditions=>{:id => params[:id]})
+    render_404 unless @entry
+    
+    raise params[:slug].to_s
+    @entry.update_attributes! :slug => params[:slug]
+    puts "---"
+    p @entry.slug
+    p params
+    flash[:notice] = "updated!"
+    render :template => 'admin/entries/edit'
   end
   
   private

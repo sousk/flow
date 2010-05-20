@@ -1,4 +1,5 @@
 require 'will_paginate/finders/base'
+require "uri"
 
 class Entry
   include Mongoid::Document
@@ -9,6 +10,8 @@ class Entry
   field :body
   field :published_at, :type => DateTime
   
+  validates_presence_of :title, :slug, :body
+  
   # will-paginate
   include WillPaginate::Finders::Base
   cattr_reader :per_page
@@ -17,7 +20,7 @@ class Entry
   before_save :compat_slug!
   
   def compat_slug!
-    self.slug ||= self.class.make_slug(title)
+    self.slug = URI.escape(slug ||= self.class.make_slug(title))
   end
   
   def publish!(time=nil)
