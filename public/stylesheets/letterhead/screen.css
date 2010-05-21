@@ -1,0 +1,259 @@
+/* 
+Theme: Letterhead  v1.1 [http://www.tumblr.com/theme/10]
+Author: Bill Israel  [http://cubicle17.com/]
+For: Tumblr  [http://tumblr.com/]
+Terms: Free to use and alter, but please give credit.
+
+http://safe.tumblr.com/theme/preview/10
+*/
+
+body {
+background: #ffffff;
+color: #333333;
+font: normal 14px/1.45em Helvetica, Arial, sans-serif;
+margin: 0;
+padding: 0;
+}
+
+a, a:active, a:visited {
+color: #aa2200;
+font-weight: bold;
+text-decoration: none;
+}
+
+a:hover {
+text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+color: #171717;
+margin: 0;
+padding: 0;
+}
+
+blockquote, p, ol, ul {
+margin-top: 0;
+margin-bottom: 1.5em;
+}
+
+blockquote {
+border-left: 2px solid #333;
+font-style: italic;
+margin: 0 2em 1.5em 1.5em;
+padding-left: 1em;
+}
+
+
+/* TITLE */
+#title {
+background: #000000;
+border-bottom: 5px solid #666666;
+color: #ffffff;
+font-size: 1.5em;
+line-height: .55em;
+padding: 1em 6em 0;
+}
+
+#title a {
+color: #ffffff;
+}
+
+
+/* LAYOUT */
+#content, #previous-next {
+margin: 3em 25.5em 3em  9em;
+min-width: 480px;
+}
+
+#sidebar {
+float: right;
+margin: 3em 7.5em 0 0;
+width: 15em;
+}
+
+#previous-next {
+clear: right;
+}
+
+
+/* SIDEBAR */
+#sidebar #search {
+margin-bottom: 3em;
+}
+
+#sidebar #description {
+margin-bottom: 3em;
+}
+
+#sidebar p, #sidebar ul {
+font-size: .9em;
+margin-left: 1em;
+}
+
+#sidebar ul {
+list-style: none;
+margin-bottom: 3em;
+padding: 0;
+}
+
+
+/* FOLLOWING LIST */
+#following li {
+display: inline;
+margin-right: 1em;
+}
+
+#following li a img {
+border: 0;
+}
+
+
+/* COLOPHON */
+#colophon {
+border-top: 1px solid #666666;
+margin-top: 4.5em;
+text-align: right;
+}
+
+#colophon li {
+font-size: .85em;
+}
+
+
+/* Search Result Count */
+#searchresultcount {
+margin: 0 0 3em;
+}
+
+
+/* CONTENT */
+#content h3 {
+font-size: 1.3em;
+margin-bottom: .5em;
+}
+
+
+/* DATES */
+.date {
+position: absolute;
+left: 2.5em;
+text-transform: uppercase;
+width: 3.5em;
+}
+
+.date .day {
+font-size: 1.3em;
+}
+
+.date a {
+border-top: 1px solid #aaa;
+display: block;
+font-size: 1.5em;
+font-weight: normal;
+margin-top: .25em;
+padding-top: .25em;
+text-align: right;
+}
+
+/* POST STYLES */
+.post {
+margin: 0 0 6em;
+}
+
+.regular h3 a, .conversation h3 a {
+color: #171717;
+}
+
+.quote big {
+color: #171717;
+float: left;
+font: bold 4.5em/1px Georgia, serif;
+margin-top: .45em;
+}
+
+.quote .words {
+display: block;
+font-size: 1.25em;
+margin-left: 2.3em;
+}
+
+.quote .source {
+display: block;
+margin: .5em 0 1.5em 2.8em;
+}
+
+
+.photo img {
+background: #eeeeee;
+border: 1px solid #aaaaaa;
+padding: 3px;
+}
+
+.photo .caption, .video .caption, .audio .caption {
+display: block;
+margin: .5em 0 1.5em;
+}
+
+.conversation ul {
+list-style: none;
+padding-left: 1.5em;
+}
+
+.conversation ul li {
+margin-bottom: .25em;
+}
+
+.conversation ul li .person {
+font-weight: bold;
+}
+
+.conversation ul li .said {
+margin-left: .75em;
+}
+
+p.notes_and_comment_count {
+font-size: 0.9em;
+}
+
+p.notes_and_comment_count a {
+color: #333333;
+font-weight: normal;
+}
+
+.quote p.notes_and_comment_count {
+margin: 0 0 0 39px;
+}
+
+.conversation p.notes_and_comment_count {
+margin: 0 0 0 21px;
+}
+
+ol.notes {
+font-size: 0.9em;
+list-style-type: none;
+padding-left: 0;
+}
+
+#disqus_thread {
+width: 500px;
+}
+
+/* PREVIOUS NEXT LINKS */  
+#previous-next #older-entries {
+margin-right: 1em;
+}
+
+#previous-next #newer-entries {
+margin-left: 1em;
+}
+
+.query {
+font-weight: bold;
+}
+
+.post .regular img {
+max-width: 100%;
+}
+
+/* CUSTOM CSS */
+

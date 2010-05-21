@@ -1,38 +1,35 @@
 !!! html
 %html
   %head
-    %title= @page_title ||= 'page title'
+    %title= @page_title ||= 'sousk.net'
     %meta{"http-equiv" => "Content-Type", :content => "text/html;charset=utf-8"}
     
     / %link{'rel'=>"alternate", 'type'=>"application/atom+xml", 
     /   'title'=>"sousk.net - timeline", 'href'=> timeline_url }
     
-    = stylesheet_link_tag "3col"
-    = stylesheet_link_tag "3col_debug"
-    = stylesheet_link_tag "phi"
+    / 
+      = stylesheet_link_tag "3col"
+      = stylesheet_link_tag "3col_debug"
+      = stylesheet_link_tag "phi"
+    = stylesheet_link_tag "letterhead/screen", :media=>'screen'
     
   %body
     #header
-      %h1= @page_title ||= 'page title'
+      %h1#title= @page_title ||= 'page title'
 
-    .colmask.blogstyle
-      .colmid
-        .colleft
-          .col1wrap
-            .col1
-              #messages
-                #notice= flash[:notice]
-                #error= flash[:error]
-                #warn= flash[:warn]
-              #contents
-                = yield :layout
+    .col2
+      %h2 recent posts
+      %ul
+        - Entry.published.limit(8).each do |e|
+          %li= link_to e.title, entry_perm_path(e)
 
-          .col2
-            %h2 recent posts
-            %ul
-              - Entry.published.limit(8).each do |e|
-                %li= link_to e.title, entry_perm_path(e)
-          .col3
+    .col1
+      #messages
+        #notice= flash[:notice]
+        #error= flash[:error]
+        #warn= flash[:warn]
+      #contents
+        = yield :layout
             
 
     #footer
