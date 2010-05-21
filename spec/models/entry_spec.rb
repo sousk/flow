@@ -5,7 +5,7 @@ describe Entry do
     @valid_params = {:title=>'tokyo sake guide', :body=>"find your favorite sake restaurant and bars..."}
   end
   
-  let(:entry) { Entry.create! @valid_params }
+  let(:entry) { Entry.create @valid_params }
   
   context "a new entry" do
     subject { entry.slug }
@@ -23,6 +23,14 @@ describe Entry do
       
       entry.published_at.should_not be_nil
       entry.published?.should be_true
+    }
+  end
+  
+  context "delete" do
+    it {
+      e = entry
+      e.save
+      e.delete.should be_true
     }
   end
 end

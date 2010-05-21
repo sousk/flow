@@ -47,6 +47,15 @@ class Admin::EntriesController < ApplicationController
     render :template => 'admin/entries/edit'
   end
   
+  def destroy
+    @entry = entry.first(:conditions=>{:id => params[:id]})
+    render_404 unless @entry
+    
+    @entry.delete
+    flash[:notice] = "deleted"
+    redirect_to admin_entries_path
+  end
+  
   private
   def entry
     Entry

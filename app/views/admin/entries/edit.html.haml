@@ -19,3 +19,6 @@
       %ul
         %li 
           = @entry.created_at.to_s(:entry)
+
+.delete
+  = button_to "delete", admin_entry_path(@entry), :method => 'delete'
