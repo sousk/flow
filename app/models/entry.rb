@@ -41,7 +41,7 @@ class Entry
   
   class << self
     def make_slug(source)
-      source.gsub(/[\s　]/,"-").downcase
+      source.gsub(/[^a-zA-Z0-9\s]/,"").downcase.gsub(/\s/, '-')
     end
     
     #
