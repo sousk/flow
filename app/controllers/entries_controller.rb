@@ -9,7 +9,12 @@ class EntriesController < ApplicationController
   
   def show
     @entry = entry.by_params(params).first
-    respond_with @entry
+    
+    unless @entry
+      render_404 unless @entry
+    else
+      respond_with @entry
+    end
   end
   
   private
