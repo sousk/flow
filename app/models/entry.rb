@@ -20,7 +20,7 @@ class Entry
   before_save :compat_slug!
   
   def compat_slug!
-    self.slug = self.class.make_slug(title) if slug.empty?
+    self.slug = self.class.make_slug(title) if ! slug || slug.empty?
     self.slug = URI.escape slug
   end
   
