@@ -18,8 +18,8 @@ describe Entry do
       entry.published_at.should be_nil
       entry.published?.should be_false
       
-      entry.should respond_to(:publish!)
-      entry.publish!
+      entry.should respond_to(:publish)
+      entry.publish
       
       entry.published_at.should_not be_nil
       entry.published?.should be_true

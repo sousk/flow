@@ -18,12 +18,14 @@ class Admin::EntriesController < ApplicationController
     @entry = entry.first(:conditions=>{:id => params[:id]})
     render_404 unless @entry
     
-    raise params[:slug].to_s
-    @entry.update_attributes! :slug => params[:slug]
-    puts "---"
-    p @entry.slug
-    p params
-    flash[:notice] = "updated!"
+    attrs = params[:entry]
+    case
+      when @entry.published? && attrs[:published_at] == '0'; @entry.unpublish
+      when @entry.draft? && attrs[:published_at] == '1'; @entry.publish
+    end
+    attrs.delete :published_at
+    
+    @entry.update_attributes! attrs
     render :template => 'admin/entries/edit'
   end
   

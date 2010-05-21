@@ -20,14 +20,23 @@ class Entry
   before_save :compat_slug!
   
   def compat_slug!
-    self.slug = URI.escape(slug ||= self.class.make_slug(title))
+    self.slug = self.class.make_slug(title) if slug.empty?
+    self.slug = URI.escape slug
   end
   
-  def publish!(time=nil)
+  def publish(time=nil)
     self.published_at = (time || Time.now).utc
+    self
+  end
+  def unpublish
+    self.published_at = nil
+    self
   end
   def published?
     ! published_at.nil?
+  end
+  def draft?
+    published_at.nil?
   end
   
   class << self
