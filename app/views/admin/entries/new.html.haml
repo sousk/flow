@@ -1,0 +1,16 @@
+-form_for [:admin, @entry] do |f|
+  .entry
+    .title
+      title
+      = f.text_field :title
+    .slug
+      slug
+      = f.text_field :slug    
+    .body
+      body
+      = f.text_area :body
+    .property
+      published
+      = f.check_box :published_at
+    .submit
+      = f.submit

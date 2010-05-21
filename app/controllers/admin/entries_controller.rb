@@ -9,6 +9,24 @@ class Admin::EntriesController < ApplicationController
     render :template => 'entries/index'
   end
   
+  def new
+    @entry = entry.new
+  end
+  
+  def create
+    attrs = params[:entry]
+    
+    @entry = entry.create attrs    
+    case
+      when @entry.published? && attrs[:published_at] == '0'; @entry.unpublish
+      when @entry.draft? && attrs[:published_at] == '1'; @entry.publish
+    end
+    @entry.save!
+    
+    flash[:notice] = 'created'
+    redirect_to edit_admin_entry_path(@entry)
+  end
+  
   def edit
     @entry = entry.first(:conditions=>{:id => params[:id]})
     render_404 unless @entry
