@@ -12,8 +12,10 @@
     .property
       published
       = f.check_box :published_at
+      = @entry.published_at.to_s
+    .submit
+      = f.submit
     .attributes
       %ul
         %li 
           = @entry.created_at.to_s(:entry)
-  
