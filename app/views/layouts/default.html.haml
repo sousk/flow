@@ -17,20 +17,24 @@
     #header
       %h1#title= @page_title ||= 'page title'
 
-    .col2
-      %h2 recent posts
+    #sidebar
+      %h4 recent
       %ul
         - Entry.published.limit(8).each do |e|
           %li= link_to e.title, entry_perm_path(e)
+      %h4 about
+      %ul#colophon
+        %li
+          = link_to "Bill Israel", "http://cubicle17.com/"
+          designed
 
-    .col1
+    #content.autopagerize_page_element
       #messages
         #notice= flash[:notice]
         #error= flash[:error]
         #warn= flash[:warn]
       #contents
         = yield :layout
-            
 
-    #footer
-      footer
+    #previous-next.autopagerize_insert_before
+      / footer

@@ -1,13 +1,16 @@
 - for entry in @entries
-  .entry
-    %h2.title= entry.title
-    %p.entry_body= entry.html
-    .attributes
-      %ul
-        %li 
-          = link_to 'permlink', entry_perm_path(entry)
-          = link_to entry.created_at.to_s(:entry), entry_path(entry)
-          - if authenticated?
-            = link_to 'edit', edit_admin_entry_path(entry)
+  .post
+    .date
+      = entry.published_at.strftime '%b'
+      %span.day= entry.published_at.strftime '%d'
+      = entry.published_at.strftime '%Y'
+      %a
+    .regular
+      %h3= link_to entry.title, entry_perm_path(entry)
+      = entry.html
+      - if authenticated?
+        %ul.attributes
+          %li= link_to 'edit', edit_admin_entry_path(entry)
+      %p.notes_and_comment_count
 
 =will_paginate @entries
