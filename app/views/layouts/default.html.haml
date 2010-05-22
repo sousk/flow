@@ -4,13 +4,9 @@
     %title= @page_title ||= 'sousk.net'
     %meta{"http-equiv" => "Content-Type", :content => "text/html;charset=utf-8"}
     
-    / %link{'rel'=>"alternate", 'type'=>"application/atom+xml", 
-    /   'title'=>"sousk.net - timeline", 'href'=> timeline_url }
+    %link{'rel'=>"alternate", 'type'=>"application/atom+xml", 
+      'title'=>"sousk.net", 'href'=> feed_url }
     
-    / 
-      = stylesheet_link_tag "3col"
-      = stylesheet_link_tag "3col_debug"
-      = stylesheet_link_tag "phi"
     = stylesheet_link_tag "letterhead/screen", :media=>'screen'
     
   %body
@@ -22,8 +18,15 @@
       %ul
         - Entry.published.limit(8).each do |e|
           %li= link_to e.title, entry_perm_path(e)
+      %h4 Like What You See?
+      %ul#nav
+        %li= link_to "Get the Feed", feed_url
       %h4 about
       %ul#colophon
+        %li
+          !
+          = link_to 'Tumblr', 'http://t.sousk.net/'
+          powered
         %li
           = link_to "Bill Israel", "http://cubicle17.com/"
           designed

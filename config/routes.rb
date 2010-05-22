@@ -37,6 +37,8 @@ Flow::Application.routes.draw do |map|
     resources :entries
   end
   
+  # http://lindsaar.net/2010/2/12/how-to-make-an-rss-feed-or-atom-feed-in-rails
+  match "feed" => "entries#index", :format => 'atom', :as => :feed
   
   
   # The priority is based upon order of creation:
