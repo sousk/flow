@@ -1,0 +1,13 @@
+.post
+  .date
+    = entry.published_at.strftime '%b'
+    %span.day= entry.published_at.strftime '%d'
+    = entry.published_at.strftime '%Y'
+    %a
+  .regular
+    %h3= link_to entry.title, entry_perm_path(entry)
+    = entry.html
+    - if authenticated?
+      %ul.attributes
+        %li= link_to 'edit', edit_admin_entry_path(entry)
+    %p.notes_and_comment_count
