@@ -24,6 +24,7 @@ gem "rails_warden"
 # gem "warden_oauth"
 # gem "binarylogic-authlogic" # use edge on plugin
 
+gem "capistrano"
 
 group :test do
   gem "sqlite3-ruby", :require => "sqlite3"
