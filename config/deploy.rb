@@ -5,8 +5,10 @@ set :repository,  "git://github.com/sousk/flow.git"
 # servers (which is the default), you can specify the actual location
 # via the :deploy_to variable:
 set :user, 'devel'
-set :use_sudo, false
 set :deploy_to, "/home/#{user}/sites/#{application}"
+
+set :use_sudo, false
+set :spinner, false
 
 # If you aren't using Subversion to manage your source code, specify
 # your SCM below:
