@@ -16,4 +16,4 @@ set :scm, :git
 
 role :app, "d.sousk.net"
 role :web, "d.sousk.net"
-# role :db,  "your db-server here", :primary => true
+role :db,  "d.sousk.net", :primary => true

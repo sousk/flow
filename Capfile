@@ -9,3 +9,8 @@ task :search_libs do
   run "ls -x1 /usr/lib | grep -i ssl"
 end
 
+namespace :thin do
+  task :delpoy do
+    puts "ok"
+  end
+end

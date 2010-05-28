@@ -1,0 +1,3 @@
+#!/bin/sh
+
+echo #{deploy_to}/current/script/process/spawner #{port} > $HOME/memo
