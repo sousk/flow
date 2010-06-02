@@ -25,6 +25,7 @@ gem "rails_warden"
 # gem "binarylogic-authlogic" # use edge on plugin
 
 gem "capistrano"
+# gem "cap-recipes" # you have to install via gem
 
 group :test do
   gem "sqlite3-ruby", :require => "sqlite3"
