@@ -19,7 +19,8 @@ role :app, "d.sousk.net"
 role :web, "d.sousk.net"
 role :db,  "d.sousk.net", :primary => true
 
-require "cap_recipes/tasks/mongodb"
-mongodb_data_path "/var/db/mongo"
-mongodb_log       "/var/log/mongo"
-mongodb_bin_path  "/home/#{user}/mongo/current/bin/mongo"
+# mongodb recipe ignores use_sudo option.. 
+# require "cap_recipes/tasks/mongodb"
+# set :mongodb_data_path, "/var/db/mongo"
+# set :mongodb_log,       "/var/log/mongo"
+# set :mongodb_bin_path,  "/home/#{user}/mongo/current/bin/mongo"
